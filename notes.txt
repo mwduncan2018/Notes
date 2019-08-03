@@ -1,0 +1,140 @@
+PEP (Python Enhancement Proposals)
+
+PEP 8 - How to format your code
+
+PEP 20 - The Zen Of Python (import this)
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
+Formatting
+	2 lines between functions
+	That is the number of lines PEP Eight recommends
+	"Sparse is better than dense" -- The Zen of Python
+
+I recommend using the form presented in Google's Python Style Guide.
+Documenting Your Code - Docstrings
+	def fetch_words(items):
+		"""Fetch a list of words from an iterable series of items.
+		
+		Usage:
+			Description of usage
+			
+		Args:
+			An iterable series of items
+			
+		Returns:
+			A list of strings		
+		"""
+		pass
+	
+	It is sometimes necessary to explain why a particular approach
+	has been chosen or a particular technique used.
+	We can do that using Python in-line comments with a hash.
+	# This would explain why a particular technique has been used.
+	
+Shebang!
+	Unix systems have the shebang as the first line of the file.
+	The shebang allows the program loader to identify which interpreter
+	to use to run the program.
+	This will identify if the Python code is 2 or 3.
+	Example:
+		#!/usr/bin/env python3
+	The exact details of your shebang depend on the location
+	of Python on your system.
+
+chmod command
+	On Linux, you must mark your script as executable
+	using the chmod command before the shebang will have any affect.
+	Example:
+		chmod +x demo.py
+		
+	
+	
+
+
+
+
+
+Escaping
+put an 'r' in the front of a string instead of escaping characters
+Example:
+	r'C:\\dev\Python\zen_of_python\notes.txt'
+
+help(str)
+get some help on the str class
+
+str.partition
+>>> 'Maryland:Abingdon'.partition(':')
+('Maryland', ':', 'Abingdon')
+
+str.join
+>>> ':'.join(['Maryland', 'Abingdon'])
+'Maryland:Abingdon'
+
+packages
+	all lowercase
+	no underscores
+modules
+	all lowercase
+	separate words with underscores
+classes
+	Pascal case
+methods
+	lower case
+	separate words with underscores
+functions
+	lower case
+	separate words with underscores
+constants
+	all upper case
+	separate words with underscores
+
+
+Python Execution Model
+	Any py file is a module
+	Python Module
+		Convenient import with API
+	Python Script
+		Convenient execution from command line
+	Python Program
+		Perhaps composed of many modules
+	
+__name__
+	allows a module to detect if it has been run as a script
+	or imported into another module
+
+Always use this
+Modules can be written for convenient import or execution by using:
+	if __name__ == '__main__'
+
+Module code is only executed once on first import
+
+import sys
+if __name__ == '__main__':
+	print(sys.argv[1])
+
+
+
+
+
+
+
+
+
