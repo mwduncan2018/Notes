@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """This is a demo for static typing in Python"""
 
-from city import City
+from .city import City
 
 
 def headline(text: str, city: City, align: bool = True) -> str:
@@ -11,7 +11,8 @@ def headline(text: str, city: City, align: bool = True) -> str:
     return ' -- '.join(result)
 
 def report(text, city: City, align=True):
-    return "..."
+
+    return "static demo"
 
 
 if __name__ == '__main__':
