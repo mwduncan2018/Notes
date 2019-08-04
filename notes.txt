@@ -125,6 +125,13 @@ if __name__ == '__main__':
 	print(sys.argv[1])
 
 
+In libraries that will be used by others, type hints add a lot of value.
+Other code using your libraries need these type hints to be properly type checked itself.
+In bigger projects, type hints help you understand how types flow through your code
+and are highly recommended.
+Type hints are even more valuable in projects where you cooperate with others.
+
+
 Document exceptions
 Document arguments
 Document returns
