@@ -1,21 +1,7 @@
 #!/usr/bin/env python3
 """This is a demo for static typing in Python"""
 
-class City:
-    def __init__(self, name):
-        self._name = name
-
-    def get_crime_rate(self) -> str:
-        if self._name == 'Baltimore':
-            return 'Bad'
-        else:
-            return 'Ok'
-
-    def get_mayor_name(self) -> str:
-        if self._name == 'Baltimore':
-            return "Martin O'Malley"
-        else:
-            return 'John Locke'
+from city import City
 
 
 def headline(text: str, city: City, align: bool = True) -> str:
@@ -23,6 +9,9 @@ def headline(text: str, city: City, align: bool = True) -> str:
     if align:
         result.insert(0, 'aligned')
     return ' -- '.join(result)
+
+def report(text, city: City, align=True):
+    return "..."
 
 
 if __name__ == '__main__':
