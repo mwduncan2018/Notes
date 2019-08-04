@@ -64,12 +64,6 @@ chmod command
 	using the chmod command before the shebang will have any affect.
 	Example:
 		chmod +x demo.py
-		
-	
-	
-
-
-
 
 
 Escaping
@@ -129,6 +123,12 @@ Module code is only executed once on first import
 import sys
 if __name__ == '__main__':
 	print(sys.argv[1])
+
+
+Document exceptions
+Document arguments
+Document returns
+Document purpose of function
 
 
 
