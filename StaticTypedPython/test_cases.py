@@ -1,4 +1,7 @@
-from automationframework.websockets.web_sockets import WebSockets
+#!/usr/bin/env python3
+"""This is a demo for static typing in Python"""
+
+from .automationframework.websockets.web_sockets import WebSockets
 
 class TestCases:
 

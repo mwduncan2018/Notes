@@ -1,5 +1,5 @@
-import sys, os
-import json
+#!/usr/bin/env python3
+"""This is a demo for static typing in Python"""
 
 class WebSockets:
 
