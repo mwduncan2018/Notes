@@ -257,6 +257,8 @@ Thinging about Ease Of Use
 	
 	Static Methods
 		For automation frameworks, they are appropriate
+		The tests are easier to write with static classes and static methods
+		In Python, static methods have the @classmethod attribute above the method
 	
 	Do not consider what is easier to implement in the automation framework.
 	Consider what is easier to write the tests.
