@@ -256,7 +256,9 @@ Thinging about Ease Of Use
 				create_customer('Bob', Sex.MALE)
 	
 	Static Methods
-		For automation frameworks, they are appropriate
+		** We DO NOT use static methods in our page objects because of the requirement to run multiple
+		** instances of AFATDS on the same operating system.
+		However, generally for automation frameworks, static methods are appropriate
 		The tests are easier to write with static classes and static methods
 		In Python, static methods have the @classmethod attribute above the method
 	
