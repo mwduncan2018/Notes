@@ -151,7 +151,7 @@ Most important things for success
 	- tests should be simple
 		each test is going to express what it does in simple terms and simple language
 		make it as easy as possible to understand the tests
-		When a test is simple, it can easily be modified and updated!
+		When a test is simple, the test can easily be modified and updated!
 		The automation framework should be easy enough to use so that others can use your code to write tests!
 	
 	- our tests drive the creation of the framework
