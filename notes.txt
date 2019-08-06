@@ -140,6 +140,177 @@ Document purpose of function
 
 
 
+=========================================================================================================
+Automation Framework Notes
+
+Most important things for success
+	- have a separate automation framework
+		Web App <--- Framework <--- Tests
+		anytime a test wants to do something, it calls a method in the framework!
+	
+	- tests should be simple
+		each test is going to express what it does in simple terms and simple language
+		make it as easy as possible to understand the tests
+		When a test is simple, it can easily be modified and updated!
+		The automation framework should be easy enough to use so that others can use your code to write tests!
+	
+	- our tests drive the creation of the framework
+		build the framework out as you need to implement new tests	
+		do a little bit of design up front, but let the tests drive the design of the framework
+	
+	- do NOT create the framework first
+		you are spending a lot of time and have NOTHING TO SHOW FOR It
+		you have to make A LOT of GUESSES about how the framework will be used and you are LIKELY TO BE WRONG
+		
+	- make the tests as easy and expressive as possible
+		put the difficult logic in the framework
+		
+
+Our Basic Architecture
+	Bash Script (setup, execute test flows, cleanup)
+	Test Flow (unittest classes)
+	Test Cases
+	Automation Framework (REST, UI, Interop, Websockets)
+	AFATDS
+	** Each layer only interacts with the layer beneath it **
+	
+Page Object Model (POM) (aka "Page Pattern")
+	the methods on a page class should correspond to the actual actions a user can do on the page
+		and not just the UI elements
+	COMMON MISTAKE = modeling every user interface element
+	BETTER WAY = think about the action the user would do
+	The tests are less complicated when modeling actions the user takes
+	We do not want someone that uses the automation framework to need to understand how to properly
+		order and integrate all the UI elements to write a test
+
+	Example:
+		Searching Posts
+			This method would know how to enter text in a text box
+			then it would click the search button
+		** Combine 2 individual actions into one thing that the user wants to do
+		
+		def search_posts(post: str) -> None:
+			driver.get_element_by_id('searchTextBox').send_keys(post)
+			driver.get_element_by_id('searchBtn').click()
+			
+		Usage:
+			PostsPage.search_posts('Wawa')
+		
+Automation Framework Architecture
+	Workflows
+	Pages
+	Selenium
+	** Each layer only interacts with the layer beneath it **
+	
+Workflows
+	Bigger than a single page
+	Things outside the scope of a single page
+	If there is a process that spans several pages, create a workflow class
+	
+Navigation
+	navigation elements that appear across many pages should have their own page object
+	
+Thinging about Ease Of Use
+	Experience will guide you
+	Over time, you'll get a better idea of what you should do
+
+	Example 1:
+		driver = Driver()
+		login_page = LoginPage(driver)
+		login_page.go_to()
+		login_page.enter_user_name("Joe")
+		login_page.enter_password("Abc12#$")
+		login_page.login_button.click()
+		
+	Example 2:
+		LoginPage.go_to()
+		LoginPage.login("Joe", "Abc12#$")
+		
+	Which one is better?
+	In Example 2, the driver is global and the page objects are static classes.
+	Keep this in mind for your future projects.
+
+	NEVER require tests to declare variables
+	NEVER require tests to create new objects
+	NEVER require tests to manage state on their own
+	NEVER expose the browser or DOM to the tests or let them manipulate it directly
+	
+	ALWAYS reduce the number of parameters for API calls when possible
+		- don't make methods that have 15 parameters
+	ALWAYS use default values instead of requiring parameters when possible
+		- use sensible default values to reduce the number of parameters
+	
+	PREFER to make the API easier to use over making the internals of the API less complex
+	PREFER using enumerations and constants to requiring the tests to pass in primitive types
+		Example:
+			Creating a customer requires the selection of male or female.
+			Do not pass in a string "male" or a string "female" to the method.
+			Pass in an enumeration to represent MALE and FEMALE.
+	
+			from enum import Enum
+			class Sex(Enum):
+				FEMALE = 1
+				MALE = 2
+				
+			Usage:
+				create_customer('Bob', Sex.MALE)
+	
+	Static Methods
+		For automation frameworks, they are appropriate
+	
+	Do not consider what is easier to implement in the automation framework.
+	Consider what is easier to write the tests.
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
