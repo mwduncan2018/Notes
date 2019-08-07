@@ -266,6 +266,22 @@ Thinging about Ease Of Use
 	Consider what is easier to write the tests.
 	
 	
+	
+	Example:
+          Creating a baseball team requires the selection of either "American" or "National" for the league.
+          Do not pass in the string "American" or the string "National" to the method.
+          Pass in an enumeration to represent AMERICAN and NATIONAL.
+
+          from enum import Enum
+          class League(Enum):
+              AMERICAN = 1
+              NATIONAL = 2
+
+          Usage:
+          create_baseball_team("Orioles", League.AMERICAN)
+
+
+	
 
 
 
