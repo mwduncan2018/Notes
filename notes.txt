@@ -266,7 +266,23 @@ Thinging about Ease Of Use
 	Consider what is easier to write the tests.
 	
 	
+Errors VS Failures
+	*** Confidence in the automation occurs when tests are failing only when the thing that they are testing actually fails ***
+	Assertions are what you are testing
+	If a test fails for ANY other reason, we want to log this as an error in the automation
+	The report should show what is broken vs what is actually a failure in the SUT
+	We want to do this in a lot areas in our application
 	
+	Failures
+		The condition being tested was not met
+		An assert in the test failed
+		
+	Test Error
+		Something other than what was being tested failed
+		The framework threw an exception
+		Stop the test
+	
+Enumeration Example	
 	Example:
           Creating a baseball team requires the selection of either "American" or "National" for the league.
           Do not pass in the string "American" or the string "National" to the method.
